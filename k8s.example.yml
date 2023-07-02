@@ -1,0 +1,57 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: teslacam-browser-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/from-to-www-redirect: "false"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  rules:
+  - host: "teslacam-browser"
+    http:
+      paths:
+        - pathType: Prefix
+          path: /
+          backend:
+            service:
+              name: plex-service
+              port:
+                number: 8088
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: teslacam-browser-service
+spec:
+  selector:
+    app: teslacam-browser
+  ports:
+    - port: 8088
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: teslacam-browser
+  labels:
+    app: teslacam-browser
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: teslacam-browser
+  template:
+    metadata:
+      labels:
+        app: teslacam-browser
+    spec:
+      containers:
+      - name: teslacam-browser
+        image: ghcr.io/ukd1/teslacam-browser:latest
+        resources:
+          limits:
+            memory: "64Mi"
+            cpu: "1000m"
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
