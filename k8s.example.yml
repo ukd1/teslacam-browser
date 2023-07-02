@@ -15,7 +15,7 @@ spec:
           path: /
           backend:
             service:
-              name: plex-service
+              name: teslacam-browser-service
               port:
                 number: 8088
 ---
@@ -55,3 +55,11 @@ spec:
           requests:
             memory: "64Mi"
             cpu: "100m"
+        volumeMounts:
+        - mountPath: /media/TeslaCam
+          name: teslacam-media
+      volumes:
+      - name: teslacam-media
+        hostPath:
+          path: /home/russ/Movies/TeslaCam
+          type: Directory

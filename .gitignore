@@ -2,3 +2,4 @@ node_modules
 dist
 *.icloud
 *.icloud
+k8s.yml
