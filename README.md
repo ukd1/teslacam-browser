@@ -32,10 +32,22 @@ node server.js /path/to/TeslaCam
 
 You can then open the app in a browser by pointing to http://localhost:8088 (replace `localhost` with address of your server).
 
+## Running in Docker
+
+```
+docker run -p 8088:8088 -v /some/folder/with-your-teslacam:/media/TeslaCam ukd1/teslacam-browser
+```
+
+You can then open the app in a browser by pointing to http://localhost:8088 (replace `localhost` with address of your server).
+
+## Running in Kubernetes
+
+Checkout the sample `k8s.example.yml` - you will need to decide on how to mount the TeslaCam media folder.
+
 ## HEVC codec
 
 It appears newer Tesla software versions encode video in HEVC / H-265 format, which Chrome seems unable to handle.  All you'll see are blank areas where the videos should be, and clicking "Play" will throw an error (shown in a red box).  If this occurs, clicking the "Browse" button will attempt to open the app in your default web browser.  If it still doesn't work, opening the same address in Safari (macOS) or Edge (Windows) should help.
- 
+
 ## tesla_dashcam
 
 If you've installed [tesla_dashcam](https://github.com/ehendrix23/tesla_dashcam), you can use it to merge clips from the command-line using a folder path provided by TeslaCam Browser:
