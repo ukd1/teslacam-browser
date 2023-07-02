@@ -1,87 +1,72 @@
-html, body
-{
-    height: 100%;
+html,
+body {
+  height: 100%;
 }
 
-[v-cloak]
-{
+[v-cloak] {
   display: none;
 }
 
-#root
-{
-    height: 100%;
+#root {
+  height: 100%;
 }
 
-#heading
-{
+#heading {
   min-height: 80px;
 }
 
-#heading .heading
-{
+#heading .heading {
   font-size: 32pt;
   cursor: pointer;
 }
 
-#heading .version
-{
+#heading .version {
   font-size: 24pt;
   color: lightgray;
 }
 
-#heading .credits
-{
+#heading .credits {
   font-size: 12pt;
   color: darkgray;
 }
 
-#content
-{
+#content {
   align-items: stretch;
   height: 100%;
 }
 
-#sidebar
-{
+#sidebar {
   min-width: 320px;
   max-width: 320px;
   overflow-x: hidden;
 }
 
-#sidebar.hidden
-{
-    margin-left: -320px;
+#sidebar.hidden {
+  margin-left: -320px;
 }
 
-#times
-{
+#times {
   overflow-y: auto;
 }
 
-#videos
-{
+#videos {
   overflow-y: auto;
 }
 
-#detail .timespan .titleContainer .title
-{
+#detail .timespan .titleContainer .title {
   cursor: pointer;
 }
 
-#detail .timespan .videoContainer .column
-{
-  width: calc( 100% / 3 );
+#detail .timespan .videoContainer .column {
+  width: calc(100% / 3);
 }
 
-#detail .timespan .videoContainer .column video
-{
+#detail .timespan .videoContainer .column video {
   width: 100%;
   height: auto;
   cursor: pointer;
 }
-.custom-range
-{
-	/* HACK: fix the custom scrub bar slow expansion in Edge */
-	width: 98% !important;
+.custom-range {
+  /* HACK: fix the custom scrub bar slow expansion in Edge */
+  width: 98% !important;
 }
